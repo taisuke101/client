@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -14,7 +13,7 @@ export default function Home() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState<any>({});
 
-    const dispatch = useAuthDispatch()
+    const dispatch = useAuthDispatch();
     const { authenticated } = useAuthState();
 
     const router = useRouter();
@@ -28,7 +27,7 @@ export default function Home() {
             password, username
             });
             dispatch("LOGIN", res.data);
-            router.push('/');
+            router.back();
         } catch (err) {
             setErrors(err.response.data);
         };
