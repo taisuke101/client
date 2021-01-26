@@ -16,7 +16,7 @@ interface Action {
 
 const StateContext = createContext<State>({
     authenticated: false,
-    user: null,
+    user: undefined,
     loading: true,
 });
 

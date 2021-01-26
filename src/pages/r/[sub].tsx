@@ -39,7 +39,7 @@ export default function SubPage() {
         formData.append('type', fileInputRef.current.name);
 
         try {
-            await Axios.post<Sub>(`/subs/${sub.name}/image`, formData, {
+            await Axios.post<Sub>(`/subs/${sub?.name}/image`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data'},
             })
 
@@ -51,7 +51,7 @@ export default function SubPage() {
 
     useEffect(() => {
         if (!sub) return 
-        setownSub(authenticated && user.username === sub.username);
+        setownSub(authenticated && user?.username === sub.username);
     })
 
     if (error) router.push('/');
